@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Case File</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🔍 CASE CLOSED</h1>
+
+    </header>
+
+    <div class="main">
+        <div class="left">
+
+            <h2>📍 Case Locations</h2>
+            <button onclick="roomClick('Kitchen')">Kitchen</button>
+            <button onclick="roomClick('Bedroom')">Bedroom</button>
+            <button onclick="roomClick('Garden')">Garden</button>
+            <button onclick="roomClick('Study')">Study</button>
+
+        </div>
+
+        <div class="middle">
+            <h2>📦 Evidence Locker</h2>
+            <ul id="list">
+            </ul>
+        </div>
+
+        <div class="right">
+            <h2>📋 Mission</h2>
+            <p id="msg">
+                Search every room and collect evidence.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div id="popup" class="popup">
+    <div class="popup-box">
+        <h2 id="roomName"></h2>
+        <p>You searched this location.</p>
+        <h3>Evidence Found</h3>
+        <p id="clueName"></p>
+        <button onclick="collect()">Collect</button>
+
+    </div>
+
+    <div style="text-align:center; margin-top:40px;">
+    <a href="suspects.html">
+        <button>Question Suspects</button>
+    </a>
+
+</div>
+
+</div>
+    <script src="logic.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Suspect Files</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+<h1 style="text-align:center;">👤 Suspect Files</h1>
+
+<div class="suspects">
+    <div class="suspect">
+
+        <h2>👨 Butler</h2>
+        <p>Age : 48</p>
+        <p>Job : Butler</p>
+        <button onclick="ask('Butler')">Question</button>
+
+    </div>
+    <div class="suspect">
+        <h2>👨 Chef</h2>
+        <p>Age : 36</p>
+        <p>Job : Chef</p>
+        <button onclick="ask('Chef')">Question</button>
+
+    </div>
+
+    <div class="suspect">
+        <h2>👨 Gardener</h2>
+        <p>Age : 52</p>
+        <p>Job : Gardener</p>
+        <button onclick="ask('Gardener')">Question</button>
+
+    </div>
+
+</div>
+
+<div id="popup" class="popup">
+    <div class="popup-box">
+        <h2 id="person"></h2>
+        <p id="answer"></p>
+        <button onclick="closeBox()">Close</button>
+    </div>
+
+</div>
+<div style="text-align:center; margin-top:40px;">
+    <a href="result.html">
+        <button>Submit Investigation Report</button>
+    </a>
+
+</div>
+<script src="logic.js"></script>
+
+</body>
+
+</html>
