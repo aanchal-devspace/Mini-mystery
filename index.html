@@ -2,30 +2,85 @@
 <html>
 
 <head>
+
     <title>Case Closed</title>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
+
 <div class="home">
 
-    <div class="card">
-        <h1>🔍 CASE CLOSED</h1>
-        <p class="line">
-            The Diamond Theft Mystery
-        </p>
-        <p>
-            Search the mansion, collect clues and find the thief.
-        </p>
-        <a href="game.html">
+    <div class="main-card">
 
-            <button>
-                Start Investigation
-            </button>
-        </a>
+        <h1>🔍 CASE CLOSED</h1>
+
+        <p class="sub">
+            Detective Investigation System
+        </p>
+
+        <h2>Choose Your Mystery</h2>
+
+        <div class="cases">
+
+            <div class="case">
+
+                <h2>💎</h2>
+
+                <h3>The Black Diamond</h3>
+
+                <p>
+                    A priceless diamond has disappeared from the mansion.
+                </p>
+
+                <button onclick="startCase('diamond')">
+                    Investigate
+                </button>
+
+            </div>
+
+            <div class="case">
+
+                <h2>🖼️</h2>
+
+                <h3>The Missing Painting</h3>
+
+                <p>
+                    A famous painting vanished before the exhibition.
+                </p>
+
+                <button onclick="startCase('painting')">
+                    Investigate
+                </button>
+
+            </div>
+
+            <div class="case">
+
+                <h2>💻</h2>
+
+                <h3>Office Data Theft</h3>
+
+                <p>
+                    Confidential company files have been stolen.
+                </p>
+
+                <button onclick="startCase('office')">
+                    Investigate
+                </button>
+
+            </div>
+
+        </div>
 
     </div>
+
 </div>
+
+<script src="logic.js"></script>
+
 </body>
 
 </html>

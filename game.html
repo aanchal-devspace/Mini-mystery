@@ -2,62 +2,61 @@
 <html>
 
 <head>
-    <title>Case File</title>
+    <title>Investigation</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-    <header>
-        <h1>🔍 CASE CLOSED</h1>
+<body onload="loadCase()">
 
-    </header>
+    <h1 class="title">🔍 CASE CLOSED</h1>
+
+    <div class="status">
+        <h2 id="caseTitle"></h2>
+        <p><b>Case No :</b> <span id="caseNo"></span></p>
+        <p><b>Victim :</b> <span id="victim"></span></p>
+        <p><b>Missing Item :</b> <span id="item"></span></p>
+        <p><b>Status :</b> Investigation Running</p>
+    </div>
 
     <div class="main">
-        <div class="left">
 
+        <div class="left">
             <h2>📍 Case Locations</h2>
-            <button onclick="roomClick('Kitchen')">Kitchen</button>
-            <button onclick="roomClick('Bedroom')">Bedroom</button>
-            <button onclick="roomClick('Garden')">Garden</button>
-            <button onclick="roomClick('Study')">Study</button>
+
+            <button onclick="roomClick(0)" id="b1"></button>
+            <button onclick="roomClick(1)" id="b2"></button>
+            <button onclick="roomClick(2)" id="b3"></button>
+            <button onclick="roomClick(3)" id="b4"></button>
 
         </div>
 
         <div class="middle">
             <h2>📦 Evidence Locker</h2>
-            <ul id="list">
-            </ul>
+            <ul id="list"></ul>
+
+            <button id="askBtn" onclick="window.location='suspects.html'" disabled>
+                Question Suspects
+            </button>
         </div>
 
         <div class="right">
             <h2>📋 Mission</h2>
-            <p id="msg">
-                Search every room and collect evidence.
-            </p>
-
+            <p id="msg">Search every location and collect all evidence.</p>
         </div>
 
     </div>
 
     <div id="popup" class="popup">
-    <div class="popup-box">
-        <h2 id="roomName"></h2>
-        <p>You searched this location.</p>
-        <h3>Evidence Found</h3>
-        <p id="clueName"></p>
-        <button onclick="collect()">Collect</button>
-
+        <div class="popup-box">
+            <h2 id="roomName"></h2>
+            <p>Evidence Found</p>
+            <h3 id="clueName"></h3>
+            <button onclick="collect()">Collect</button>
+        </div>
     </div>
 
-    <div style="text-align:center; margin-top:40px;">
-    <a href="suspects.html">
-        <button>Question Suspects</button>
-    </a>
-
-</div>
-
-</div>
     <script src="logic.js"></script>
 
 </body>
+
 </html>

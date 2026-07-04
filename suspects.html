@@ -2,37 +2,29 @@
 <html>
 
 <head>
-    <title>Suspect Files</title>
+    <title>Question Suspects</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 
-<body>
-<h1 style="text-align:center;">👤 Suspect Files</h1>
+<body onload="loadSuspects()">
+
+<h1 class="title">👤 Question Suspects</h1>
 
 <div class="suspects">
+
     <div class="suspect">
-
-        <h2>👨 Butler</h2>
-        <p>Age : 48</p>
-        <p>Job : Butler</p>
-        <button onclick="ask('Butler')">Question</button>
-
-    </div>
-    <div class="suspect">
-        <h2>👨 Chef</h2>
-        <p>Age : 36</p>
-        <p>Job : Chef</p>
-        <button onclick="ask('Chef')">Question</button>
-
+        <h2 id="s1"></h2>
+        <button onclick="ask(0)">Question</button>
     </div>
 
     <div class="suspect">
-        <h2>👨 Gardener</h2>
-        <p>Age : 52</p>
-        <p>Job : Gardener</p>
-        <button onclick="ask('Gardener')">Question</button>
+        <h2 id="s2"></h2>
+        <button onclick="ask(1)">Question</button>
+    </div>
 
+    <div class="suspect">
+        <h2 id="s3"></h2>
+        <button onclick="ask(2)">Question</button>
     </div>
 
 </div>
@@ -43,14 +35,14 @@
         <p id="answer"></p>
         <button onclick="closeBox()">Close</button>
     </div>
-
 </div>
-<div style="text-align:center; margin-top:40px;">
-    <a href="result.html">
-        <button>Submit Investigation Report</button>
-    </a>
 
+<div style="text-align:center;margin-top:30px;">
+    <button id="reportBtn" onclick="window.location='result.html'" disabled>
+        Submit Investigation Report
+    </button>
 </div>
+
 <script src="logic.js"></script>
 
 </body>
