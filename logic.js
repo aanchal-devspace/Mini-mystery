@@ -18,6 +18,16 @@ let data = {
             "I was watering the plants."
         ],
         thief: "Chef",
+        story: [
+            "8:00 PM - Dinner started.",
+            "8:30 PM - Richard showed everyone the Black Diamond.",
+            "8:45 PM - The Chef secretly copied the cabinet key.",
+            "9:00 PM - The Butler left the room.",
+            "9:05 PM - The Chef stole the diamond.",
+            "9:08 PM - His uniform button broke.",
+            "9:10 PM - He left fingerprints on the cabinet.",
+            "9:15 PM - He escaped through the garden."
+        ]
     },
     painting: {
         no: "102",
@@ -33,6 +43,14 @@ let data = {
             "I was cleaning the gallery."
         ],
         thief: "Art Dealer",
+        story: [
+            "6:00 PM - Gallery closed.",
+            "6:20 PM - The Art Dealer distracted the guard.",
+            "6:25 PM - He unlocked the storage room.",
+            "6:28 PM - He replaced the painting with a fake.",
+            "6:30 PM - CCTV captured him leaving.",
+            "6:35 PM - Paint stains remained on his jacket."
+        ]
     },
     office: {
         no: "103",
@@ -48,6 +66,16 @@ let data = {
             "I was fixing the server."
         ],
         thief: "Manager",
+
+        story: [
+            "5:45 PM - Employees left.",
+            "6:00 PM - The Manager returned.",
+            "6:05 PM - He copied files to a USB.",
+            "6:10 PM - He emailed the files.",
+            "6:12 PM - Login records saved his activity.",
+            "6:15 PM - The USB was found in his drawer."
+
+        ]
     }
 };
 
@@ -57,11 +85,9 @@ let clue = "";
 let room = "";
 
 function loadCase() {
-
     let name = localStorage.getItem("case");
 
     game = data[name];
-
     document.getElementById("caseTitle").innerHTML = game.title;
     document.getElementById("caseNo").innerHTML = game.no;
     document.getElementById("victim").innerHTML = game.victim;
@@ -105,30 +131,96 @@ function collect() {
     }
 
 }
-let asked=[];
-function loadSuspects(){
+let asked = [];
+function loadSuspects() {
 
-    let name=localStorage.getItem("case");
-    game=data[name];
-    document.getElementById("s1").innerHTML=game.suspects[0];
-    document.getElementById("s2").innerHTML=game.suspects[1];
-    document.getElementById("s3").innerHTML=game.suspects[2];
+    let name = localStorage.getItem("case");
+    game = data[name];
+    document.getElementById("s1").innerHTML = game.suspects[0];
+    document.getElementById("s2").innerHTML = game.suspects[1];
+    document.getElementById("s3").innerHTML = game.suspects[2];
 
 }
 
-function ask(i){
-    document.getElementById("person").innerHTML=game.suspects[i];
+function ask(i) {
+    document.getElementById("person").innerHTML = game.suspects[i];
 
-    document.getElementById("answer").innerHTML=game.answers[i];
-    document.getElementById("popup").style.display="flex";
-    if(!asked.includes(i)){
+    document.getElementById("answer").innerHTML = game.answers[i];
+    document.getElementById("popup").style.display = "flex";
+    if (!asked.includes(i)) {
         asked.push(i);
 
     }
-    if(asked.length==3){
-        document.getElementById("reportBtn").disabled=false;
+    if (asked.length == 3) {
+        document.getElementById("reportBtn").disabled = false;
     }
 }
-function close(){
-    document.getElementById("popup").style.display="none";
+function closeBox() {
+    document.getElementById("popup").style.display = "none";
+}
+function loadReport() {
+    let name = localStorage.getItem("case");
+    game = data[name];
+    document.getElementById("caseTitle").innerHTML = game.title;
+    let box = document.getElementById("suspectList");
+    box.innerHTML = "";
+
+    for (let i = 0; i < game.suspects.length; i++) {
+        box.innerHTML += `
+        <p>
+        <input type="radio" name="person" value="${game.suspects[i]}">
+        ${game.suspects[i]}
+        </p>
+        `;
+    }
+
+}
+function checkAnswer() {
+    let person = document.getElementsByName("person");
+    let ans = "";
+
+    for (let i = 0; i < person.length; i++) {
+        if (person[i].checked) {
+            ans = person[i].value;
+        }
+
+    }
+    if (ans == "") {
+        document.getElementById("msg").innerHTML = "Please select a suspect.";
+
+        return;
+    }
+    if (ans == game.thief) {
+        localStorage.setItem("winner", "yes");
+        fetch("/report", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                case: game.title,
+                criminal: ans
+            })
+        });
+        window.location = "solved.html";
+    }
+    else {
+        document.getElementById("msg").innerHTML = "❌ Wrong Guess! Try Again.";
+
+    }
+}
+
+function loadStory() {
+
+    let name = localStorage.getItem("case");
+    game = data[name];
+    document.getElementById("caseName").innerHTML = game.title;
+    let box = document.getElementById("story");
+    box.innerHTML = "";
+    for (let i = 0; i < game.story.length; i++) {
+        box.innerHTML += "<p>✔ " + game.story[i] + "</p>";
+
+    }
+    box.innerHTML += "<br><h3>Criminal : " + game.thief + "</h3>";
+
 }

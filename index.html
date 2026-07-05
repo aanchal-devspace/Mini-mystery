@@ -2,85 +2,57 @@
 <html>
 
 <head>
-
-    <title>Case Closed</title>
-
+    <title>CASE CLOSED</title>
     <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
+<div class="cases">
 
-<div class="home">
-
-    <div class="main-card">
-
-        <h1>🔍 CASE CLOSED</h1>
-
-        <p class="sub">
-            Detective Investigation System
-        </p>
-
-        <h2>Choose Your Mystery</h2>
-
-        <div class="cases">
-
-            <div class="case">
-
-                <h2>💎</h2>
-
-                <h3>The Black Diamond</h3>
-
-                <p>
-                    A priceless diamond has disappeared from the mansion.
-                </p>
-
-                <button onclick="startCase('diamond')">
-                    Investigate
-                </button>
-
-            </div>
-
-            <div class="case">
-
-                <h2>🖼️</h2>
-
-                <h3>The Missing Painting</h3>
-
-                <p>
-                    A famous painting vanished before the exhibition.
-                </p>
-
-                <button onclick="startCase('painting')">
-                    Investigate
-                </button>
-
-            </div>
-
-            <div class="case">
-
-                <h2>💻</h2>
-
-                <h3>Office Data Theft</h3>
-
-                <p>
-                    Confidential company files have been stolen.
-                </p>
-
-                <button onclick="startCase('office')">
-                    Investigate
-                </button>
-
-            </div>
-
+    <div class="case">
+        <div class="case-top">
+            <span>CASE #101</span>
+            <span class="status">ACTIVE</span>
         </div>
 
+        <h2>💎 The Black Diamond</h2>
+
+        <p><b>Victim:</b> Richard Brown</p>
+        <p><b>Missing Item:</b> Black Diamond</p>
+        <p><b>Difficulty:</b> Easy</p>
+        <button onclick="startCase('diamond')">Start investigation</button>
+    </div>
+
+    <div class="case">
+        <div class="case-top">
+            <span>CASE #102</span>
+            <span class="status">ACTIVE</span>
+        </div>
+
+        <h2>🖼️ The Missing Painting</h2>
+        <p><b>Victim:</b> Emily Carter</p>
+        <p><b>Missing Item:</b> Royal Painting</p>
+        <p><b>Difficulty:</b> Medium</p>
+
+        <button onclick="startCase('painting')">Start investigation</button>
+    </div>
+
+    <div class="case">
+        <div class="case-top">
+            <span>CASE #103</span>
+            <span class="status">ACTIVE</span>
+        </div>
+
+        <h2>💻 Office Data Theft</h2>
+        <p><b>Victim:</b> TechNova Ltd.</p>
+        <p><b>Missing Item:</b> Project Files</p>
+        <p><b>Difficulty:</b> Hard</p>
+
+        <button onclick="startCase('office')">Start investigation</button>
     </div>
 
 </div>
-
 <script src="logic.js"></script>
-
 </body>
-
 </html>

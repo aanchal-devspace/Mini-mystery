@@ -5,7 +5,6 @@ body{
     font-family:Arial;
     background:linear-gradient(to right,#141e30,#243b55);
     color:white;
-
 }
 
 .home{
@@ -145,6 +144,58 @@ ul{
 
 .suspect h2{
     color:gold;
+}
+
+.cases{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin-top:40px;
+    flex-wrap:wrap;
+}
+
+.case{
+    width:300px;
+    background:rgba(255,255,255,0.12);
+    border:2px solid rgba(255,255,255,0.2);
+    border-radius:15px;
+    padding:20px;
+    text-align:left;
+    transition:0.3s;
+    box-shadow:0 0 15px rgba(0,0,0,0.3);
+}
+
+.case:hover{
+    transform:translateY(-8px);
+    border-color:gold;
+}
+
+.case-top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:15px;
+    font-size:14px;
+}
+
+.status{
+    color:lightgreen;
+    font-weight:bold;
+}
+
+.case h2{
+    margin-bottom:15px;
+    color:gold;
+    font-size:24px;
+}
+
+.case p{
+    margin:8px 0;
+    line-height:22px;
+}
+
+.case button{
+    width:100%;
+    margin-top:20px;
 }
 
 .title{

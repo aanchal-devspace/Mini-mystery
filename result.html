@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Investigation Report</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
-<body>
+<body onload="loadReport()">
 
-<div class="card">
-    <h1>📄 Investigation Report</h1>
-    <p>Select the thief.</p>
-    <div class="radio">
+<h1 class="title">📄 Investigation Report</h1>
+<div class="status">
 
-        <input type="radio" name="person" value="Butler"> Butler <br><br>
-        <input type="radio" name="person" value="Chef"> Chef <br><br>
-        <input type="radio" name="person" value="Gardener"> Gardener
-    </div>
+    <h2 id="caseTitle"></h2>
+    <p>Select the criminal based on the evidence.</p>
+    <div id="suspectList"></div>
 
-    <button onclick="check()">Submit Report</button>
-    <h2 id="result"></h2>
+    <button onclick="checkAnswer()">Submit Report</button>
+
+    <p id="msg" style="margin-top:20px;"></p>
 </div>
 <script src="logic.js"></script>
 </body>

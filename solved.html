@@ -3,30 +3,31 @@
 
 <head>
     <title>Case Solved</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-<div class="home">
-    <div class="card">
-        <h1>🏆 CASE SOLVED</h1>
-        <h2>Congratulations, Detective!</h2>
-        <p>You solved the Diamond Theft Mystery.</p>
-        <p>The Chef was found guilty.</p>
-        <hr>
-        <h3>Case Summary</h3>
+<body onload="loadStory()">
 
-        <p>✔ 4 Evidence Collected</p>
-        <p>✔ 3 Suspects Questioned</p>
-        <p>✔ Investigation Completed</p>
+    <div class="home">
+        <div class="main-card">
+            <h1>🏆 CASE CLOSED</h1>
 
-        <a href="index.html">
-            <button>Play Again</button>
+            <h2 id="caseName"></h2>
+            <p>Congratulations detective!</p>
+            <p>You solved the mystery</p>
 
-        </a>
+            <hr>
+            <h2>How the Crime happened</h2>
+            <div id="story"></div>
 
+            <br>
+            <button onclick="window.location='index.html'">
+                Play Another Mystery
+
+            </button>
+        </div>
     </div>
-</div>
+    <script src="logic.js"></script>
 </body>
+
 </html>
